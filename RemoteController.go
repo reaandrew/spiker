@@ -5,12 +5,16 @@ import (
 	"fmt"
 	"github.com/pkg/errors"
 	"google.golang.org/grpc"
+	"google.golang.org/grpc/keepalive"
 	"log"
 	"net"
+	"sync/atomic"
+	"time"
 )
 
 type RemoteController struct {
-	workers []*RemoteWorker
+	workerIds int32
+	workers map[int32]*RemoteWorker
 	server  *grpc.Server
 	waitFor int
 	results int
@@ -35,11 +39,11 @@ func (r *RemoteController) OnComplete(subscriber func()){
 }
 
 func (r *RemoteController) publishOnComplete(){
-	r.server.GracefulStop()
 	fmt.Println("Publishing OnComplete")
 	for _, subscriber := range r.onCompleteSubscribers{
 		subscriber()
 	}
+	r.server.Stop()
 }
 
 func (r *RemoteController) OnWorkerConnected(){
@@ -50,9 +54,10 @@ func (r *RemoteController) OnWorkerConnected(){
 }
 
 func (r *RemoteController) OnTestResult(_ *TestResult){
-	fmt.Println("OnTestResult")
 	r.results++
+	fmt.Println("OnTestResult", r.results, len(r.workers))
 	if r.results == len(r.workers){
+		fmt.Println("Publishing complete...")
 		r.publishOnComplete()
 	}
 }
@@ -72,14 +77,21 @@ func (r *RemoteController) Run(spec *TestSpecification) (TestResult, error) {
 }
 
 func (r *RemoteController) addWorker(worker *RemoteWorker) {
-	r.workers = append(r.workers, worker)
+	r.workers[worker.id] = worker
 }
 
 func (r *RemoteController) Connect(worker LoadrService_ConnectServer) error {
-	remoteWorker := NewRemoteWorker(worker)
+	id := atomic.AddInt32(&r.workerIds, 1)
+	remoteWorker := NewRemoteWorker(worker, id)
 	r.addWorker(remoteWorker)
+	defer func(){
+		r.removeWorker(remoteWorker)
+		fmt.Println("Number of connected workers", len(r.workers))
+	}()
+	fmt.Println("Number of connected workers", len(r.workers))
 	r.OnWorkerConnected()
 	remoteWorker.Wait()
+
 	return nil
 }
 
@@ -94,13 +106,23 @@ func (r *RemoteController) Start(bindAddress string) {
 	}
 }
 
+func (r *RemoteController) removeWorker(worker *RemoteWorker) {
+	delete(r.workers, worker.id)
+}
+
 func NewRemoteController(waitFor int) *RemoteController {
 	controller := &RemoteController{
 		waitFor: waitFor,
 		onReadySubscribers: []func(){},
 		onCompleteSubscribers: []func(){},
+		workers: map[int32]*RemoteWorker{},
 	}
-	server := grpc.NewServer()
+
+	var kaep = keepalive.EnforcementPolicy{
+		MinTime:             5 * time.Second, // If a client pings more than once every 5 seconds, terminate the connection
+		PermitWithoutStream: true,            // Allow pings even when there are no active streams
+	}
+	server := grpc.NewServer(grpc.KeepaliveEnforcementPolicy(kaep))
 	RegisterLoadrServiceServer(server, controller)
 	controller.server = server
 	return controller

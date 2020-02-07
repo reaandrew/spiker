@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b1b1da2b-c17b-455f-9005-f2cdacf10b77" name="Default Changelist" comment="" />
+    <list default="true" id="b1b1da2b-c17b-455f-9005-f2cdacf10b77" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RemoteController.go" beforeDir="false" afterPath="$PROJECT_DIR$/RemoteController.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RemoteWorker.go" beforeDir="false" afterPath="$PROJECT_DIR$/RemoteWorker.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Retry.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Worker.go" beforeDir="false" afterPath="$PROJECT_DIR$/Worker.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spiker" beforeDir="false" afterPath="$PROJECT_DIR$/spiker" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,33 +24,37 @@
       </list>
     </option>
   </component>
-  <component name="GOROOT" path="$PROJECT_DIR$/../../../../go1.14rc1" />
+  <component name="GOROOT" path="$PROJECT_DIR$/../../../../go1.13.6" />
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1XLPIesbqOulHdQhVSmIWb1PfeW" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DefaultGoTemplateProperty" value="Go File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
+    <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="terminal" />
+    <property name="settings.editor.selected.configurable" value="go.sdk" />
   </component>
   <component name="RunManager" selected="Go Build.go build github.com/reaandrew/spiker">
     <configuration name="go build github.com/reaandrew/spiker" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="spiker" />
       <working_directory value="$PROJECT_DIR$/" />
       <envs>
-        <env name="GRPC_GO_LOG_VERBOSITY_LEVEL" value="99 GRPC_GO_LOG_SEVERITY_LEVEL=info" />
+        <env name="GRPC_GO_LOG_VERBOSITY_LEVEL" value="99 GRPC_GO_LOG_SEVERITY_LEVEL=debug" />
       </envs>
       <kind value="PACKAGE" />
       <package value="github.com/reaandrew/spiker" />
@@ -81,18 +95,24 @@
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <ignored-roots>
       <path value="$PROJECT_DIR$/../.." />
     </ignored-roots>
   </component>
   <component name="WindowStateProjectService">
+    <state x="875" y="362" width="800" height="684" key="#Go_Modules_(vgo)" timestamp="1581077535787">
+      <screen x="0" y="27" width="2560" height="1348" />
+    </state>
+    <state x="875" y="362" width="800" height="684" key="#Go_Modules_(vgo)/0.27.2560.1348@0.27.2560.1348" timestamp="1581077535787" />
     <state x="470" y="200" width="800" height="684" key="#Notifications" timestamp="1580987125131">
       <screen x="70" y="27" width="1610" height="1023" />
     </state>
     <state x="470" y="200" width="800" height="684" key="#Notifications/70.27.1610.1023@70.27.1610.1023" timestamp="1580987125131" />
-    <state x="333" y="196" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1580987804848">
-      <screen x="70" y="27" width="1610" height="1023" />
+    <state x="418" y="250" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1581079724355">
+      <screen x="0" y="27" width="2560" height="1348" />
     </state>
+    <state x="418" y="250" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.27.2560.1348@0.27.2560.1348" timestamp="1581079724355" />
     <state x="333" y="196" key="#com.intellij.execution.impl.EditConfigurationsDialog/70.27.1610.1023@70.27.1610.1023" timestamp="1580987804848" />
     <state x="1088" y="420" width="374" height="569" key="#com.intellij.ide.util.MemberChooser" timestamp="1580824582070">
       <screen x="0" y="27" width="2560" height="1348" />
@@ -106,29 +126,30 @@
       <screen x="0" y="27" width="2560" height="1348" />
     </state>
     <state x="1025" y="568" width="500" height="273" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.27.2560.1348@0.27.2560.1348" timestamp="1580823219660" />
-    <state width="1564" height="524" key="GridCell.Tab.0.bottom" timestamp="1580987847158">
-      <screen x="70" y="27" width="1610" height="1023" />
+    <state width="1232" height="536" key="GridCell.Tab.0.bottom" timestamp="1581080322865">
+      <screen x="0" y="27" width="2560" height="1348" />
     </state>
-    <state width="2512" height="693" key="GridCell.Tab.0.bottom/0.27.2560.1348@0.27.2560.1348" timestamp="1580953331133" />
+    <state width="1232" height="536" key="GridCell.Tab.0.bottom/0.27.2560.1348@0.27.2560.1348" timestamp="1581080322865" />
     <state width="1564" height="524" key="GridCell.Tab.0.bottom/70.27.1610.1023@70.27.1610.1023" timestamp="1580987847158" />
-    <state width="1564" height="524" key="GridCell.Tab.0.center" timestamp="1580987847157">
-      <screen x="70" y="27" width="1610" height="1023" />
+    <state width="1232" height="536" key="GridCell.Tab.0.center" timestamp="1581080322864">
+      <screen x="0" y="27" width="2560" height="1348" />
     </state>
-    <state width="2512" height="693" key="GridCell.Tab.0.center/0.27.2560.1348@0.27.2560.1348" timestamp="1580953331132" />
+    <state width="1232" height="536" key="GridCell.Tab.0.center/0.27.2560.1348@0.27.2560.1348" timestamp="1581080322864" />
     <state width="1564" height="524" key="GridCell.Tab.0.center/70.27.1610.1023@70.27.1610.1023" timestamp="1580987847157" />
-    <state width="1564" height="524" key="GridCell.Tab.0.left" timestamp="1580987847156">
-      <screen x="70" y="27" width="1610" height="1023" />
+    <state width="1232" height="536" key="GridCell.Tab.0.left" timestamp="1581080322863">
+      <screen x="0" y="27" width="2560" height="1348" />
     </state>
-    <state width="2512" height="693" key="GridCell.Tab.0.left/0.27.2560.1348@0.27.2560.1348" timestamp="1580953331132" />
+    <state width="1232" height="536" key="GridCell.Tab.0.left/0.27.2560.1348@0.27.2560.1348" timestamp="1581080322863" />
     <state width="1564" height="524" key="GridCell.Tab.0.left/70.27.1610.1023@70.27.1610.1023" timestamp="1580987847156" />
-    <state width="1564" height="524" key="GridCell.Tab.0.right" timestamp="1580987847157">
-      <screen x="70" y="27" width="1610" height="1023" />
+    <state width="1232" height="536" key="GridCell.Tab.0.right" timestamp="1581080322864">
+      <screen x="0" y="27" width="2560" height="1348" />
     </state>
-    <state width="2512" height="693" key="GridCell.Tab.0.right/0.27.2560.1348@0.27.2560.1348" timestamp="1580953331132" />
+    <state width="1232" height="536" key="GridCell.Tab.0.right/0.27.2560.1348@0.27.2560.1348" timestamp="1581080322864" />
     <state width="1564" height="524" key="GridCell.Tab.0.right/70.27.1610.1023@70.27.1610.1023" timestamp="1580987847157" />
-    <state x="364" y="173" width="1022" height="737" key="SettingsEditor" timestamp="1580987792943">
-      <screen x="70" y="27" width="1610" height="1023" />
+    <state x="467" y="219" width="1022" height="737" key="SettingsEditor" timestamp="1581076803108">
+      <screen x="0" y="27" width="2560" height="1348" />
     </state>
+    <state x="467" y="219" key="SettingsEditor/0.27.2560.1348@0.27.2560.1348" timestamp="1581076803108" />
     <state x="364" y="173" width="1022" height="737" key="SettingsEditor/70.27.1610.1023@70.27.1610.1023" timestamp="1580987792943" />
     <state x="1025" y="315" width="500" height="778" key="refactoring.ChangeSignatureDialog" timestamp="1580823085852">
       <screen x="0" y="27" width="2560" height="1348" />

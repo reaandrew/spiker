@@ -2,33 +2,38 @@ package main
 
 import (
 	"fmt"
-	"log"
+	"os"
 	"sync"
+	"time"
 )
 
-func main(){
+func main() {
+	waitFor := 3
+	serverAddress := "127.0.0.1:41521"
 
-	waitFor := 2
-	wg := sync.WaitGroup{}
-	wg.Add(1)
-	serverAddress := ":41521"
-	controller := NewRemoteController(waitFor)
-	controller.OnReady(func(){
-		fmt.Println("Running test")
-		controller.Run(&TestSpecification{})
-	})
-	controller.OnComplete(func(){
-		fmt.Println("Completed!!")
-		wg.Done()
-	})
-	go controller.Start(serverAddress)
-
-	for i := 0; i < waitFor; i++{
-		log.Println("Creating new worker")
+	if os.Args[1] == "worker" {
 		worker := NewWorker(serverAddress)
-		go worker.Start()
+		time.Sleep(1 * time.Second)
+		worker.Start()
 	}
 
+	if os.Args[1] == "server" {
+		wg := sync.WaitGroup{}
+		wg.Add(1)
 
-	wg.Wait()
+		controller := NewRemoteController(waitFor)
+		controller.OnReady(func() {
+			fmt.Println("Running test")
+			controller.Run(&TestSpecification{})
+		})
+		controller.OnComplete(func() {
+			fmt.Println("Completed!!")
+			wg.Done()
+		})
+
+		time.Sleep(2 * time.Second)
+		go controller.Start(serverAddress)
+
+		wg.Wait()
+	}
 }

@@ -14,7 +14,7 @@ import (
 
 type RemoteController struct {
 	workerIds int32
-	workers map[int32]*RemoteWorker
+	workers map[int32]*RemoteWorkerClient
 	server  *grpc.Server
 	waitFor int
 	results int
@@ -76,7 +76,7 @@ func (r *RemoteController) Run(spec *TestSpecification) (TestResult, error) {
 	return TestResult{}, nil
 }
 
-func (r *RemoteController) addWorker(worker *RemoteWorker) {
+func (r *RemoteController) addWorker(worker *RemoteWorkerClient) {
 	r.workers[worker.id] = worker
 }
 
@@ -106,7 +106,7 @@ func (r *RemoteController) Start(bindAddress string) {
 	}
 }
 
-func (r *RemoteController) removeWorker(worker *RemoteWorker) {
+func (r *RemoteController) removeWorker(worker *RemoteWorkerClient) {
 	delete(r.workers, worker.id)
 }
 
@@ -115,7 +115,7 @@ func NewRemoteController(waitFor int) *RemoteController {
 		waitFor: waitFor,
 		onReadySubscribers: []func(){},
 		onCompleteSubscribers: []func(){},
-		workers: map[int32]*RemoteWorker{},
+		workers: map[int32]*RemoteWorkerClient{},
 	}
 
 	var kaep = keepalive.EnforcementPolicy{

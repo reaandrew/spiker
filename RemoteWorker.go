@@ -6,12 +6,12 @@ import (
 	"log"
 )
 
-type RemoteWorker struct{
+type RemoteWorkerClient struct{
 	id int32
 	worker LoadrService_ConnectServer
 }
 
-func (remoteWorker *RemoteWorker) Run(specification *TestSpecification){
+func (remoteWorker *RemoteWorkerClient) Run(specification *TestSpecification){
 	go func(worker LoadrService_ConnectServer){
 		log.Println("Send worker request inside ControlRequest")
 
@@ -21,7 +21,7 @@ func (remoteWorker *RemoteWorker) Run(specification *TestSpecification){
 	}(remoteWorker.worker)
 }
 
-func (remoteWorker *RemoteWorker) Wait(){
+func (remoteWorker *RemoteWorkerClient) Wait(){
 	for {
 		_, err := remoteWorker.worker.Recv()
 		if err == io.EOF || err != nil{
@@ -31,6 +31,6 @@ func (remoteWorker *RemoteWorker) Wait(){
 	}
 }
 
-func NewRemoteWorker(worker LoadrService_ConnectServer, id int32) *RemoteWorker {
-	return &RemoteWorker{worker: worker, id: id}
+func NewRemoteWorker(worker LoadrService_ConnectServer, id int32) *RemoteWorkerClient {
+	return &RemoteWorkerClient{worker: worker, id: id}
 }

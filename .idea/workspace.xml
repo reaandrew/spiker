@@ -2,15 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b1b1da2b-c17b-455f-9005-f2cdacf10b77" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller.go" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/RemoteController.go" beforeDir="false" afterPath="$PROJECT_DIR$/RemoteController.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RemoteWorker.go" beforeDir="false" afterPath="$PROJECT_DIR$/RemoteWorker.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Retry.go" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Worker.go" beforeDir="false" afterPath="$PROJECT_DIR$/Worker.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spiker" beforeDir="false" afterPath="$PROJECT_DIR$/spiker" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spiker" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
